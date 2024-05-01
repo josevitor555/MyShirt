@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/root.css">
+
+  <!-- <script src="https://js.stripe.com/v3/"></script> -->
+
+  <title>!MyPlant</title>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <a href="#" class="logo">!MyPlant</a>
+      <i class='bx bxs-cart-alt' id="cart-icon" data-quantity="0"></i>
+      <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content"></div>
+        <div class="total">
+          <div class="total-title">Total</div>
+          <div class="total-price"></div>
+        </div>
+        <button type="button" class="btn-buy">Pay Now</button>
+        <i class="bx bx-x" id="close-cart"></i>
+      </div>
+    </div>
+  </header>
+  <section class="shop container">
+    <h2 class="section-title">New collection <span>MyPlant!</span></h2>
+    <div class="shop-content">
+      <div class="product-box">
+        <img class="product-img" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRGzbGZBT-RedmvmRfE1p_cm2WAzIYuVHwG7XvDl1f7tibklm3sRSPU4vpGvOfA-r7f3klv">
+        <h2 class="product-title">
+          Red Rose - <span>Rosa rubra</span>
+        </h2>
+        <span class="price">R$ 9.90 - 0.000029 (BTC)</span>
+        <div class="product-description">
+          <p>
+            Queen of gardens, its silky petals exhale a sweet perfume that enchants the senses, while its thorns guard its beauty with delicate protection.
+          </p>
+        </div>
+        <button type="submit" class="add-cart">
+          Add To Cart
+          <i class='bx bxs-cart-alt'></i>
+        </button>
+      </div>
+      <div class="product-box">
+        <img class="product-img" src="https://plantura.garden/uk/wp-content/uploads/sites/2/2021/05/peace-lily.jpeg">
+        <h2 class="product-title">
+          Peace Lily - <span>Spathiphyllum wallisii</span>
+        </h2>
+        <span class="price">R$ 10.99 - 0.000032 (BTC)</span>
+        <div class="product-description">
+          <p>
+            Elegant in its simplicity, its dark green leaves contrast with its white and exuberant flowers, bringing serenity and harmony to spaces.
+          </p>
+        </div>
+        <button type="submit" class="add-cart">
+          Add To Cart
+          <i class='bx bxs-cart-alt'></i>
+        </button>
+      </div>
+      <div class="product-box">
+        <img class="product-img" src="https://i.pinimg.com/originals/ee/8c/da/ee8cda538a7ef9b881561122b000b360.jpg">
+        <h2 class="product-title">
+          Hibiscus - <span>Hibiscus rosa-sinensis</span>
+        </h2>
+        <span class="price">R$ 6.99 - 0.000021 (BTC)</span>
+        <div class="product-description">
+          <p>
+            A tropical explosion of vibrant colors, its large and showy flowers appear hand-painted, attracting hummingbirds and admirers with its exotic charm.
+          </p>
+        </div>
+        <button type="submit" class="add-cart">
+          Add To Cart
+          <i class='bx bxs-cart-alt'></i>
+        </button>
+      </div>
+      <div class="product-box">
+        <img class="product-img" src="https://imagens-revista.vivadecora.com.br/uploads/2019/12/Cultive-diferentes-tipos-de-cactos-em-casa.-Fonte-Pinterest.jpg">
+        <h2 class="product-title">
+          Hibiscus - <span>Cactaceae</span>
+        </h2>
+        <span class="price">R$ 6.99 - 0.000021 (BTC)</span>
+        <div class="product-description">
+          <p>
+            Cacti are succulent plants belonging to the family Cactaceae, known for their adaptations to arid and dry environments. Their distinctive features include reduced or absent leaves, green, fleshy stems that store water, and sharp spines that serve for protection against herbivores and to reduce water loss through transpiration.
+          </p>
+        </div>
+        <button type="submit" class="add-cart">
+          Add To Cart
+          <i class='bx bxs-cart-alt'></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  <script src="./js/main.js"></script>
+  <script src="./js/accordion.js"></script>
+  <script type="module" src="./js/cart.js"></script>
+  <!-- <script type="module" src="./js/stripe.js"></script> -->
+</body>
+</html>

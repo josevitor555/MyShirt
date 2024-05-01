@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+img {
+  width: 100%;
+}
+.container {
+  max-width: 1068px;
+  margin: auto;
+  width: 100%;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--container-color);
+  box-shadow: 1 1px 4px hsla(0, 0%, 98%, 0.1);
+  z-index: 1000;
+}
+header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+header .logo {
+  font-size: 2rem;
+  color: var(--color-logo);
+  font-weight: 600;
+}
+header #cart-icon {
+  position: relative;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+header #cart-icon[data-quantity="0"]::after {
+  contain: "";
+}
+header #cart-icon[data-quantity]::after {
+  content: attr(data-quantity);
+  position: absolute;
+  top: 0;
+  right: -1.2rem;
+  width: 2rem;
+  height: 2rem;
+  background: var(--text-color);
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+header .cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 36rem;
+  min-height: 100vh;
+  border: 2px solid var(--text-color);
+  padding: 1.6rem;
+  background: var(--container-color);
+  box-shadow: -2px 0 4px hsla(0, 4%, 15% / 10%);
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.cart.active {
+  right: 0;
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+header .cart .cart-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  color: var(--bg-color);
+}
+header .cart .total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  border-top: 2px solid var(--text-color);
+}
+header .cart .total .total-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+header .cart .total .total-price {
+  font-size: 1.4rem;
+  margin: 1rem 0 0 0.7rem;
+}
+header .cart .btn-buy {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem auto 0 auto;
+  padding: 1.2rem 2rem;
+  width: 50%;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  background: var(--text-color);
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 500;
+  cursor: pointer;
+}
+header .cart #close-cart {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+  margin: 0.8rem 0.8rem;
+}
+header .cart .cart-box {
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+header .cart .cart-box .cart-image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+  object-position: center;
+  padding: 2rem;
+}
+header .cart .detail-box {
+  display: grid;
+  grid-row: 0.5rem;
+}
+header .cart .detail-box .cart-product-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+header .cart .detail-box .cart-price {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0.6rem 0;
+}
+header .cart .detail-box .cart-quantity {
+  border: 1px solid var(--text-color);
+  outline: none;
+  width: 4.8rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+header .cart .cart-box .cart-remove {
+  font-size: 2.4rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+section {
+  padding: 8rem 0 3rem;
+}
+section .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: var(--color-logo);
+}
+section .section-title span {
+  color: var(--span-color-title);
+}
+section .shop {
+  margin-top: 2rem;
+}
+section .shop-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+  gap: 1.5rem;
+}
+section .shop-content .product-box {
+  background: var(--product-box);
+  padding: 2rem;
+  height: auto;
+  border-radius: 1rem;
+  transition: 0.3s;
+}
+section .shop-content .product-box:hover {
+  transform: translateY(-4px);
+}
+section .shop-content .product-box .product-img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+section .shop-content .product-box .product-img img {
+  width: 100%;
+  height: auto;
+}
+section .shop-content .product-box .product-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0rem;
+}
+section .shop-content .product-box .product-title span {
+  font-size: 1.4rem;
+  color: var(--span-color-title);
+  font-weight: 600;
+  cursor: pointer;
+}
+section .shop-content .product-box .price {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+section .shop-content .product-box button {
+  background: var(--text-color);
+  color: #FFFFFF;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1.2rem 2rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 black;
+  margin-top: 1.8rem;
+}
+section .shop-content .product-box button:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+section .shop-content .product-box button:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 black;
+}
+section .shop-content .product-box button .add-cart {
+  margin-left: 1rem;
+  font-size: 1.4rem;
+}
+section .shop-content .product-box .product-description {
+  height: auto;
+  background: var(--product-description);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 0.8rem;
+}
+section .shop-content .product-box .product-description p {
+  color: var(--bg-color);
+  font-size: 1.2rem;
+}
+@media (max-width: 1080px) {
+  .nav {
+    padding: 1.4rem 0;
+  }
+  
+  section {
+    padding: 7rem 0 2rem;
+  }
+  
+  .container {
+    margin: 0 auto;
+    width: 90%;
+  }
+  
+  .shop {
+    margin-top: 2rem !important;
+  }
+
+}
+@media (max-width: 360px) {
+  .shop {
+    margin-top: 1rem !important;
+  }
+}
+#accordion-items {
+  height: 100vh;
+  width: auto;
+}
+body {
+  background: var(--container-color);
+  color: var(--bg-color);
+}

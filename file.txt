@@ -1,0 +1,260 @@
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    try {
+      // Create Checkout Sessions from body params.
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+            price: '{{PRICE_ID}}',
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        success_url: `${req.headers.origin}/?success=true`,
+        cancel_url: `${req.headers.origin}/?canceled=true`,
+      });
+      res.redirect(303, session.url);
+    } catch (err) {
+      res.status(err.statusCode || 500).json(err.message);
+    }
+  } else {
+    res.setHeader('Allow', 'POST');
+    res.status(405).end('Method Not Allowed');
+  }
+}
+
+//
+// DESCRIBE -> bloco de testes - tests suites
+// IT or TEST -> Declara único teste unitário - tests cases
+// EXPECT
+
+//
+// import { loadStripe } from "@stripe/stripe-js";
+
+// const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const payBtn = document.querySelector(".btn-buy");
+
+  payBtn.addEventListener("click", function () {
+    fetch("/stripe-checkout", {
+      method: "POST",
+      headers: new Headers({ "Content-Type": "application/Json" }),
+      mode: "cors",
+      body: JSON.stringify({
+        items: JSON.parse(localStorage.getItem("cartItems")),
+      }),
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (session) {
+        // Use a Stripe.redirectToCheckout diretamente aqui
+        const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+        return stripe.redirectToCheckout({ sessionId: session.id });
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+      });
+  });
+});
+
+////////////////////////////////////
+
+
+// import { loadStripe } from "@stripe/stripe-js";
+
+import { loadStripe } from './stripe.js';
+
+// Crie uma instância do objeto Stripe com sua chave de API pública
+const stripePromise = loadStripe(
+  "pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss"
+);
+
+const checkoutButton = document.querySelector(".btn-buy");
+
+checkoutButton.addEventListener("click", async function () {
+  try {
+    const stripe = await stripePromise;
+
+    const response = await fetch("/stripe-payment", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        items: JSON.parse(localStorage.getItem("cartItems")),
+      }),
+    });
+    const session = await response.json();
+    const result = await stripe.redirectToCheckout({ sessionId: session.id });
+    if (result.error) {
+      throw new Error(result.error.message);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+});
+/////////////////////////////////////
+// // import { Stripe } from './stripe.js';
+// // import { Stripe } from "https://js.stripe.com/v3/";
+
+// // Create an instance of the Stripe object with your publishable API key
+// const stripe = Stripe("pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss");
+// const checkoutButton = document.querySelector(".btn-buy");
+
+// checkoutButton.addEventListener("click", function () {
+//   fetch("/stripe-payment", {
+//     headers: { "Content-Type": "application/json" },
+//     method: "POST",
+//     body: JSON.stringify({
+//       items: JSON.parse(localStorage.getItem("cartItems")),
+//     }),
+//   })
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (session) {
+//       return stripe.redirectToCheckout({ sessionId: session.id });
+//     })
+//     .then(function (result) {
+//       if (result.error) {
+//         alert(result.error.message);
+//       }
+//     })
+//     .catch(function (error) {
+//       console.error("Error:", error);
+//     });
+// });
+
+
+// // import { loadStripe } from '@stripe/stripe-js';
+// // import { loadStripe } from '/node_modules/@stripe/stripe-js';
+
+// // const stripe = Stripe("pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss");
+// // const checkoutButton = document.querySelector(".btn-buy");
+
+// // checkoutButton.addEventListener("click", function () {
+// //   fetch("/stripe-payment", {
+// //     headers: { "Content-Type": "application/json" },
+// //     method: "POST",
+// //     body: JSON.stringify({
+// //       items: JSON.parse(localStorage.getItem("cartItems")),
+// //     }),
+// //   })
+// //     .then(function (response) {
+// //       return response.json();
+// //     })
+// //     .then(function (session) {
+// //       return stripe.redirectToCheckout({ sessionId: session.id });
+// //     })
+// //     .then(function (result) {
+// //       if (result.error) {
+// //         alert(result.error.message);
+// //       }
+// //     })
+// //     .catch(function (error) {
+// //       console.error("Error:", error);
+// //     });
+// // });
+
+// // const stripePayment = loadStripe("pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss");
+// // const stripePayment = Stripe('pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss');
+
+// // const checkoutButton = document.querySelector(".btn-buy");
+
+// // checkoutButton.addEventListener("click", async function () {
+// //   const stripe = await stripePayment;
+// //   fetch("/stripe-payment", {
+// //     headers: { "Content-Type": "application/json" },
+// //     method: "POST",
+// //     body: JSON.stringify({
+// //       items: JSON.parse(localStorage.getItem("cartItems")),
+// //     }),
+// //   })
+// //     .then(function (response) {
+// //       return response.json();
+// //     })
+// //     .then(function (session) {
+// //       return stripe.redirectToCheckout({ sessionId: session.id });
+// //     })
+// //     .then(function (result) {
+// //       if (result.error) {
+// //         alert(result.error.message);
+// //       }
+// //     })
+// //     .catch(function (error) {
+// //       console.error("Error:", error);
+// //     });
+// // });
+
+// // // const checkoutButton = document.querySelector(".btn-buy");
+
+// // // checkoutButton.addEventListener("click", async function () {
+// // //   try {
+// // //     const response = await fetch("/stripe-payment", {
+// // //       headers: { "Content-Type": "application/json" },
+// // //       method: "POST",
+// // //       body: JSON.stringify({
+// // //         items: JSON.parse(localStorage.getItem("cartItems")),
+// // //       }),
+// // //     });
+
+// // //     const session = await response.json();
+
+// // //     const stripe = Stripe(
+// // //       "pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss"
+// // //     );
+// // //     await stripe.redirectToCheckout({ sessionId: session.id });
+// // //   } catch (error) {
+// // //     console.error("Error:", error);
+// // //     alert("Failed to initiate payment. Please try again later.");
+// // //   }
+// // });
+//////////////////////////////////////////////
+// // import { Stripe } from './stripe.js';
+// import {loadStripe} from '@stripe/stripe-js';
+
+// // Create an instance of the Stripe object with your publishable API key
+// const stripe = loadStripe("pk_test_51P9d4GJTiGK3Mb2UmpPGmNUzlzaSD2bwUpUMmCFxFU9ZwwQucXzCy8NdiQ6DganlT32P22hnmf1bFdqhKhTOscKI00Gq1jRbss");
+// const checkoutButton = document.querySelector(".btn-buy");
+
+// checkoutButton.addEventListener("click", function () {
+//   fetch("/stripe-payment", {
+//     headers: { "Content-Type": "application/json" },
+//     method: "POST",
+//     body: JSON.stringify({
+//       items: JSON.parse(localStorage.getItem("cartItems")),
+//     }),
+//   })
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (session) {
+//       return stripe.redirectToCheckout({ sessionId: session.id });
+//     })
+//     .then(function (result) {
+//       if (result.error) {
+//         alert(result.error.message);
+//       }
+//     })
+//     .catch(function (error) {
+//       console.error("Error:", error);
+//     });
+// });
+
+///////////////////////////////////////
+
+// import helmet from "helmet";
+
+// app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// app.use(helmet({
+    //     contentSecurityPolicy: {
+//       directives: {
+//         ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+//         "img-src": ["'self'", "data:"], // Permitir imagens de 'self' (seu próprio domínio) e 'data:' (base64)
+//       },
+//     },
+// }));
