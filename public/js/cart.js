@@ -14,6 +14,7 @@ payBtn.addEventListener("click", () => {
     .then((data) => {
       if (data.url) {
         location.href = data.url;
+        clearCart();
       } else {
         console.error('URL not found in response.');
       }
