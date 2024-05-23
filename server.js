@@ -66,6 +66,7 @@ app.post('/stripe-checkout', async (request, response) => {
         // Create Checkout Session
         const session = await StripeGateway.checkout.sessions.create({
             payment_method_types: ['card'],
+            mode: 'payment',
             success_url: `${DOMAIN}/successPage.html`,
             cancel_url: `${DOMAIN}/failedPage.html`,
             line_items: lineItems,
