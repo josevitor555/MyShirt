@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Jost", sans-serif;
   scroll-padding-top: 2rem;
   scroll-behavior: smooth;
   list-style: none;
@@ -71,11 +71,10 @@ header .cart {
   right: -100%;
   width: 36rem;
   min-height: 100vh;
-  border: 2px solid var(--text-color);
   padding: 1.6rem;
   background: var(--container-color);
-  box-shadow: -2px 0 4px hsla(0, 4%, 15% / 10%);
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 2000;
 }
 .cart.active {
   right: 0;
@@ -118,6 +117,10 @@ header .cart .btn-buy {
   font-style: italic;
   font-weight: 500;
   cursor: pointer;
+}
+header .cart .btn-buy a {
+  text-decoration: none;
+  color: #FFFFFF;
 }
 header .cart #close-cart {
   position: absolute;
@@ -296,4 +299,18 @@ section .shop-content .product-box .product-description p {
 body {
   background: var(--container-color);
   color: var(--bg-color);
+}
+body.cart-open .overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.overlay {
+  display: none;
 }

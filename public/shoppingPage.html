@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./css/shoppingPage.css">
+    <link rel="stylesheet" href="./css/root.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>Shopping Page</title>
+</head>
+<body>
+    <section id="cartPage">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td> Remove </td>
+                    <td> Image </td>
+                    <td> Product </td>
+                    <td> Price </td>
+                    <td> Quantity </td>
+                    <td> Subtotal </td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tabela gerada dinamicamente -->
+            </tbody>
+        </table>
+
+        <div class="cart-empty-message" id="cart-empty-message">
+            <h2> Empty Bag </h2>
+            <p> Return to cart and add more items </p>
+        </div>
+    </section>
+
+    <section id="cart-add">
+        <div id="subtotal">
+            <h3> Cart Totals </h3>
+            <table>
+                <tr>
+                    <td> Cart Subtotal </td>
+                    <td id="cart-subtotal"> $0.00 </td>
+                </tr>
+                <tr>
+                    <td> Shipping </td>
+                    <td id="shipping"> Free </td>
+                </tr>
+                <tr>
+                    <td> <strong> Total </strong> </td>
+                    <td id="cart-total"> $0.00 </td>
+                </tr>
+            </table>
+            <div class="button-area">
+                <button id="proceedToCheckout"> Proceed To Checkout </button>
+                <a href="http://localhost:3000"> Continue Shopping </a>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="./js/cart.js"></script>
+</body>
+</html>

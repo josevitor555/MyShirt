@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+}
+
+#cartPage {
+    padding: 2% 4%;
+    overflow-y: auto;
+}
+
+#cartPage table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cartPage table img {
+    width: 70px;
+}
+
+#cartPage table td:nth-child(1) {
+    width: 100px;
+    text-align: center;
+}
+
+#cartPage table td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+}
+
+#cartPage table td:nth-child(3) {
+    width: 250px;
+    text-align: center;
+}
+
+#cartPage table td:nth-child(4), #cartPage table td:nth-child(5), #cartPage table td:nth-child(6) {
+    width: 150px;
+    text-align: center;
+}
+
+#cartPage table td:nth-child(5) input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+}
+
+#cartPage table thead {
+    border-top: 1px solid #151515;
+    border-left: none;
+    border-right: none;
+}
+
+#cartPage table thead td {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    padding: 18px 0;
+}
+
+
+#cartPage table tbody tr {
+    padding: 1rem;
+    background: #FAFAFA;
+}
+
+#cartPage table tbody tr i {
+    color: #151515;
+    font-size: 2rem;
+}
+
+#cartPage table tbody tr img {
+    border-radius: 1rem;
+}
+
+#cartPage table tbody tr p {
+    color: #151515;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+#cartPage table tbody tr td {
+    padding-top: 20px;
+}
+
+#cartPage table tbody td {
+    font-size: 1.3rem;
+}
+
+#cart-empty-message {
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background: #151515;
+    color: #FAFAFA;
+}
+
+
+#cart-empty-message h2 {
+    font-size: 2rem;
+}
+
+#cart-empty-message p {
+    font-size: 1.6rem;
+}
+
+#cart-add {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2% 4%;
+}
+
+#cart-add #subtotal {
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #151515;
+    padding: 30px;
+}
+
+#cart-add #subtotal .button-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cart-add #subtotal .button-area a {
+    font-size: 1.2rem;
+    color: #151515;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#cart-add #subtotal table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#cart-add #subtotal table td {
+    width: 50%;
+    border: 1px solid #151515;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
+#cart-add #subtotal button {
+    padding: 10px 20px;
+    border: 1px solid #151515;
+    background: #FAFAFA;
+    color: #151515;
+    transition: .3s;
+}
+
+#cart-add #subtotal button:hover {
+    background: #151515;
+    color: #FAFAFA;
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

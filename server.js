@@ -29,29 +29,20 @@ app.get('/failedPage', (request, response) => {
 });
 
 const StripeGateway = stripe(process.env.STRIPE_SECRET_KEY);
-// console.log(`Stripe API: ${process.env.STRIPE_SECRET_KEY}`);
 
 const DOMAIN = process.env.DOMAIN;
-console.log(typeof DOMAIN, DOMAIN);
-
-// console.log(`Running on ${process.env.DOMAIN}`);
 
 app.post('/stripe-checkout', async (request, response) => {
     try {
-        // const { items } = request.body;
-
-        // if (!items || !Array.isArray(items) || items.length === 0) {
-        //     return response.status(400).json({ error: 'No items in the cart.' });
-        // }
 
         const lineItems = request.body.items.map((item) => {
-            const unitAmount = Math.round(parseFloat(item.price.replace(/[^\d.]/g, '')) * 100);
+            const unitAmount = parseInt(parseFloat(item.price.replace(/[^0-9.-]+/g, "")) * 100);
             console.log(`item-price: ${item.price}`);
             console.log(`unitAmount: ${unitAmount}`);
     
             return {
                 price_data: {
-                    currency: 'brl',
+                    currency: 'usd',
                     product_data: {
                         name: item.title,
                         images: [item.productImg]

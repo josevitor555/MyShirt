@@ -108,22 +108,14 @@ function updatetotal() {
         var cartBox = cartBoxes[i];
         var priceElement = cartBox.getElementsByClassName('cart-price')[0];
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
-
-        var priceText = priceElement.innerText.replace(',', '.');
-        console.log(`Price: ${priceText}`);
-
-        var price = parseFloat(priceText.replace(/[^\d.]/g, ''));
-        if (!isNaN(price)) {
-            var quantity = parseFloat(quantityElement.value);
-            total += price * quantity;
-        }
+        var price = parseFloat(priceElement.innerHTML.replace("$", ""));
+        var quantity = quantityElement.value;
+        total += price * quantity;
     }
     total = Math.round(total * 100) / 100;
-    var formattedTotal = total.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
-    document.getElementsByClassName('total-price')[0].innerText = formattedTotal;
+    document.getElementsByClassName("total-price")[0].innerHTML = "$" + total;
+    
+    localStorage.setItem("cartTotal", total);
 }
 
 // Save Items of the Cart in LocalStorage
@@ -169,7 +161,7 @@ function loadCartItems() {
     }
     var cartTotal = localStorage.getItem('cartTotal');
     if (cartTotal) {
-        document.getElementsByClassName('total-price')[0].innerText = '$' + cartTotal;
+        document.getElementsByClassName('total-price')[0].innerText = "$" + cartTotal;
     }
 
     updateCartIcon();
@@ -188,11 +180,4 @@ function updateCartIcon() {
     }
     var cartIcon = document.querySelector('#cart-icon');
     cartIcon.setAttribute('data-quantity', quantity);
-}
-
-function clearCart() {
-    var cartContent = document.getElementsByClassName('cart-content')[0];
-    cartContent.innerHTML = '';
-    updatetotal();
-    localStorage.removeItem('cartItems');
 }
