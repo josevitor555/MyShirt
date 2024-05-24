@@ -106,6 +106,68 @@
     font-size: 1.6rem;
 }
 
+#cart-add #coupon {
+    width: 50%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-add #cart-add #coupon {
+    padding: 1rem 2rem;
+    background: #FAFAFA;
+    width: 40%;
+}
+
+#cart-add #coupon-message {
+    margin-top: 10px;
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    display: none;
+    width: 60%;
+    font-size: 2rem;
+}
+
+#cart-add #coupon-message.success {
+    background: #151515;
+    color: #FAFAFA;
+    display: block;
+}
+
+#cart-add #coupon-message.error {
+    background: #151515;
+    color: #FAFAFA;
+    display: block;
+}
+
+#cart-add #coupon h3, #subtotal h3 {
+    font-size: 2.6rem;
+    padding-bottom: 15px;
+}
+
+#cart-add #coupon input {
+    padding: 10px 30px;
+    outline: none;
+    width: 60%;
+    margin-bottom: 10px;
+    border: 1px solid #151515;
+}
+
+#cart-add #coupon button {
+    padding: 10px 20px;
+    border: 1px solid #151515;
+    background: #FAFAFA;
+    color: #151515;
+    transition: .3s;
+    margin-left: 2rem;
+}
+
+#cart-add #coupon button:hover {
+    background: #151515;
+    color: #FAFAFA;
+    cursor: pointer;
+}
+
 #cart-add {
     width: 100%;
     height: auto;
@@ -122,13 +184,18 @@
     padding: 30px;
 }
 
+#cart-add #subtotal h3 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
 #cart-add #subtotal .button-area {
     display: flex;
     justify-content: space-between;
 }
 
 #cart-add #subtotal .button-area a {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #151515;
     text-decoration: none;
     text-transform: uppercase;

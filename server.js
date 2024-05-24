@@ -32,14 +32,29 @@ const StripeGateway = stripe(process.env.STRIPE_SECRET_KEY);
 
 const DOMAIN = process.env.DOMAIN;
 
+const applyDiscount = (price, discountPercentage) => {
+    return price - (price * discountPercentage / 100);
+};
+
 app.post('/stripe-checkout', async (request, response) => {
     try {
+        const { items, discountCode } = request.body;
+        const validCoupons = { "DISCOUNT30": 30, "SAVE30": 30, "PROMO30": 30 };
+        let discountPercentage = 0;
 
-        const lineItems = request.body.items.map((item) => {
-            const unitAmount = parseInt(parseFloat(item.price.replace(/[^0-9.-]+/g, "")) * 100);
-            console.log(`item-price: ${item.price}`);
-            console.log(`unitAmount: ${unitAmount}`);
-    
+        if (validCoupons[discountCode]) {
+            discountPercentage = validCoupons[discountCode];
+        }
+
+        const lineItems = items.map((item) => {
+            let unitAmount = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
+            
+            if (discountPercentage > 0) {
+                unitAmount = applyDiscount(unitAmount, discountPercentage);
+            }
+
+            unitAmount = parseInt(unitAmount * 100); // Convert to cents for Stripe
+
             return {
                 price_data: {
                     currency: 'usd',
@@ -52,8 +67,7 @@ app.post('/stripe-checkout', async (request, response) => {
                 quantity: item.quantity
             };
         });
-        console.log(`lineItems: ${JSON.stringify(lineItems)}`);
-    
+
         // Create Checkout Session
         const session = await StripeGateway.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -64,7 +78,7 @@ app.post('/stripe-checkout', async (request, response) => {
             billing_address_collection: 'required'
         });
         response.json({ url: session.url });
-        
+
     } catch (error) {
         console.error('Error creating checkout session:', error);
         response.status(500).json({ error: 'Failed to create checkout session' });
@@ -72,8 +86,6 @@ app.post('/stripe-checkout', async (request, response) => {
 });
 
 const PORT = process.env.PORT || 3000;
-console.log(process.env.PORT);
-
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT} PORT.`);
 });
