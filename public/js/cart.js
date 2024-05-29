@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const truncatedTitle = item.title.length > 20 ? item.title.substring(0, 20) + '...' : item.title;
 
             tr.innerHTML = `
-                <td> <a href="#"> <i class='bx bxs-trash-alt'></i> </a> </td>
+                <td> <a href="#"> <i class='bx bxs-trash-alt remove-item'></i> </a> </td>
                 <td> <a href="#"> <img src="${item.productImg}" alt="Image Product Not Found"> </a> </td>
                 <td class="product-title"> <p> ${truncatedTitle} </p> </td>
                 <td> $${price.toFixed(2)} </td>
@@ -84,6 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             tbody.appendChild(tr);
+
+            const removeIcon = tr.querySelector('.remove-item');
+            removeIcon.addEventListener('click', () => {
+                removeCartItem(item);
+            });
         });
 
         const cartTotal = cartSubtotal.toFixed(2);
@@ -122,10 +127,25 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem('cartItems');
         localStorage.removeItem('cartTotal');
     }
-});
+    
+    function removeCartItem(itemToRemove) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+        cartItems = cartItems.filter(item => item.title !== itemToRemove.title);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-/*
-Armazenamento dos dados no localStorage: Certifique-se de que os dados do carrinho são armazenados corretamente no localStorage.
-Recuperação dos dados do localStorage: Verifique se os dados são recuperados corretamente e usados de forma adequada no cálculo dos preços.
-Conversão de string para número: Certifique-se de que a conversão dos preços de string para número está sendo feita corretamente.
-*/
+        loadCartItemsIntoTable();
+
+        const newSubtotal = calculateSubTotal(cartItems);
+        updateCartTotals(newSubtotal);
+    }
+
+    function calculateSubTotal(cartItems) {
+        let subtotal = 0;
+        cartItems.forEach(item => {
+            const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
+            subtotal += price * item.quantity;
+        });
+
+        return subtotal;
+    }
+});
