@@ -38,7 +38,7 @@ const applyDiscount = (price, discountPercentage) => {
 
 app.post('/stripe-checkout', async (request, response) => {
     try {
-        const { items, discountCode } = request.body;
+        const { discountCode } = request.body;
         const validCoupons = { "DISCOUNT30": 30, "SAVE30": 30, "PROMO30": 30 };
         let discountPercentage = 0;
 
@@ -46,7 +46,7 @@ app.post('/stripe-checkout', async (request, response) => {
             discountPercentage = validCoupons[discountCode];
         }
 
-        const lineItems = items.map((item) => {
+        const lineItems = request.body.items.map((item) => {
             let unitAmount = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
             
             if (discountPercentage > 0) {

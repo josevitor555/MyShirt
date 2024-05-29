@@ -6,11 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartSubtotalElement = document.getElementById("cart-subtotal");
     const cartTotalElement = document.getElementById("cart-total");
 
-    // Array de cupons válidos
     const validCoupons = ["DISCOUNT30", "SAVE30", "PROMO30"];
     let appliedCoupon = "";
     
-    // Subtotal inicial
     let cartSubtotal = 0;
 
     proceedToCheckoutBtn.addEventListener('click', () => {
@@ -21,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify({
                 items: JSON.parse(localStorage.getItem("cartItems")),
-                discountCode: appliedCoupon // Enviar o código de desconto
+                discountCode: appliedCoupon
             }),
         })
         .then((res) => res.json())
@@ -40,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const enteredCoupon = couponInput.value.trim();
         
         if (validCoupons.includes(enteredCoupon)) {
-            appliedCoupon = enteredCoupon; // Armazenar o cupom aplicado
+            appliedCoupon = enteredCoupon;
             const discountPercentage = 30;
             const discount = (cartSubtotal * discountPercentage) / 100;
             const newSubtotal = cartSubtotal - discount;
@@ -69,14 +67,17 @@ document.addEventListener("DOMContentLoaded", () => {
         cartItems.forEach(item => {
             const tr = document.createElement('tr');
 
+            // Convert the price to a float
             const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
             const subtotal = price * item.quantity;
             cartSubtotal += subtotal;
 
+            const truncatedTitle = item.title.length > 20 ? item.title.substring(0, 20) + '...' : item.title;
+
             tr.innerHTML = `
                 <td> <a href="#"> <i class='bx bxs-trash-alt'></i> </a> </td>
                 <td> <a href="#"> <img src="${item.productImg}" alt="Image Product Not Found"> </a> </td>
-                <td> <p> ${item.title} </p> </td>
+                <td class="product-title"> <p> ${truncatedTitle} </p> </td>
                 <td> $${price.toFixed(2)} </td>
                 <td> <input type="number" value="${item.quantity}" readonly> </td>
                 <td> $${subtotal.toFixed(2)} </td>
@@ -122,3 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem('cartTotal');
     }
 });
+
+/*
+Armazenamento dos dados no localStorage: Certifique-se de que os dados do carrinho são armazenados corretamente no localStorage.
+Recuperação dos dados do localStorage: Verifique se os dados são recuperados corretamente e usados de forma adequada no cálculo dos preços.
+Conversão de string para número: Certifique-se de que a conversão dos preços de string para número está sendo feita corretamente.
+*/
