@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: #fafafa;
+  background: #faf9f9;
   border-radius: 1.4rem;
   width: 600px;
 }
@@ -79,7 +79,7 @@
   opacity: 0;
 }
 .sc-container .content-box .accordion {
-  background: #65b741;
+  background: #FBF6EE;
   width: 100%;
   height: auto;
   margin-top: 2rem;
@@ -102,12 +102,12 @@
   padding: 1.2rem;
   font-size: 1.4rem;
   font-weight: 400;
-  border-left: 2px solid #fafafa;
-  color: #fafafa;
+  border-left: 2px solid #212420;
+  color: #212420;
 }
 .sc-container .content-box .accordion .accordion-content a {
   text-decoration: none;
-  color: #fafafa;
+  color: #212420;
   font-weight: 600;
   transition: .3s;
 }
