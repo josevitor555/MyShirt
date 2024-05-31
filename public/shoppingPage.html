@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="./css/root.css">
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <title>Shopping Page</title>
+    <title> Shopping Page </title>
 </head>
 <body>
     <section id="cartPage">
         <table width="100%">
             <thead>
                 <tr>
-                    <td> Remove </td>
-                    <td> Image </td>
-                    <td> Product </td>
-                    <td> Price </td>
-                    <td> Quantity </td>
+                    <td> Remover </td>
+                    <td> Imagem </td>
+                    <td> Produto </td>
+                    <td> Preço </td>
+                    <td> Quantidade </td>
                     <td> Subtotal </td>
                 </tr>
             </thead>
@@ -29,30 +29,30 @@
         </table>
 
         <div class="cart-empty-message" id="cart-empty-message">
-            <h2> Empty Bag </h2>
-            <p> Return to your cart and add items </p>
+            <h2> Sacola Vazia </h2>
+            <p> Sua sacola de compras está vazia, retorne à pagina principal para adicionar mais itens </p>
         </div>
     </section>
 
     <section id="cart-add">
         <div id="coupon">
-            <h3> Apply Coupon </h3>
+            <h3> Aplicar Cupom </h3>
             <div>
-                <input type="text" placeholder="Enter Your Coupon">
-                <button> Apply </button>
+                <input type="text" placeholder="Código do Cupom">
+                <button> Aplicar </button>
             </div>
             <div id="coupon-message" class="hidden"></div>
         </div>
         <div id="subtotal">
-            <h3> Cart Totals </h3>
+            <h3> Total do Carrinho </h3>
             <table>
                 <tr>
-                    <td> Cart Subtotal </td>
+                    <td> Subtotal do Carrinho </td>
                     <td id="cart-subtotal"> R$ 0.00 </td>
                 </tr>
                 <tr>
-                    <td> Shipping </td>
-                    <td id="shipping"> Free </td>
+                    <td> Frete </td>
+                    <td id="shipping"> Grátis </td>
                 </tr>
                 <tr>
                     <td> <strong> Total </strong> </td>
@@ -60,11 +60,10 @@
                 </tr>
             </table>
             <div class="button-area">
-                <button id="proceedToCheckout"> Proceed To Checkout </button>
-                <a href="http://localhost:3000"> Continue Shopping </a>
+                <button id="proceedToCheckout"> Proceder ao Checkout </button>
+                <a href="http://localhost:3000"> Continue comprando </a>
             </div>
         </div>
-        
     </section>
 
     <script src="./js/cart.js"></script>

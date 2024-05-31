@@ -110,14 +110,14 @@ function updateTotal() {
         var cartBox = cartBoxes[i];
         var priceElement = cartBox.getElementsByClassName('cart-price')[0];
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
-        var price = parseFloat(priceElement.innerHTML.replace("$", ""));
+        var price = parseFloat(priceElement.innerHTML.replace("R$", "").replace(",", "."));
         var quantity = quantityElement.value;
         total += price * quantity;
     }
     total = Math.round(total * 100) / 100;
-    document.getElementsByClassName("total-price")[0].innerHTML = "$" + total;
-    
-    localStorage.setItem("cartTotal", total);
+    document.getElementsByClassName("total-price")[0].innerHTML = formatBRL(total);
+
+    localStorage.setItem("cartTotal", total)
 }
 
 function saveCartItem() {
@@ -131,8 +131,7 @@ function saveCartItem() {
         var priceElement = cartBox.getElementsByClassName('cart-price')[0];
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
         var productImg = cartBox.getElementsByClassName('cart-image')[0].src;
-
-        // Objeto Item
+        
         var item = {
             title: titleElement.innerText,
             price: priceElement.innerText,
@@ -161,10 +160,14 @@ function loadCartItems() {
     }
     var cartTotal = localStorage.getItem('cartTotal');
     if (cartTotal) {
-        document.getElementsByClassName('total-price')[0].innerText = "$" + cartTotal;
+        document.getElementsByClassName('total-price')[0].innerText = formatBRL(parseFloat(cartTotal));
     }
 
     updateCartIcon();
+}
+
+function formatBRL(value) {
+    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
 function updateCartIcon() {

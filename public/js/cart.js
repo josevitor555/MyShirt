@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const discount = (cartSubtotal * discountPercentage) / 100;
             const newSubtotal = cartSubtotal - discount;
             updateCartTotals(newSubtotal);
-            showCouponMessage(`Coupon applied successfully! You saved $${discount.toFixed(2)}`, "success");
+            showCouponMessage(`Cupom aplicado com sucesso! Você economizou ${formatBRL(discount)}`, "success");
         } else {
-            showCouponMessage("Invalid coupon code!", "error");
+            showCouponMessage("Código Inválido!", "error");
         }
     });
 
@@ -60,14 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadCartItemsIntoTable() {
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         const tbody = document.querySelector("#cartPage tbody");
-        tbody.innerHTML = ""; // Clear the table body
+        tbody.innerHTML = "";
 
         cartSubtotal = 0;
 
         cartItems.forEach(item => {
             const tr = document.createElement('tr');
 
-            // Convert the price to a float
             const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
             const subtotal = price * item.quantity;
             cartSubtotal += subtotal;
@@ -78,9 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td> <a href="#"> <i class='bx bxs-trash-alt remove-item'></i> </a> </td>
                 <td> <a href="#"> <img src="${item.productImg}" alt="Image Product Not Found"> </a> </td>
                 <td class="product-title"> <p> ${truncatedTitle} </p> </td>
-                <td> $${price.toFixed(2)} </td>
+                <td> ${formatBRL(price)} </td> <!-- Ok: Exibição do preço em BRL -->
                 <td> <input type="number" value="${item.quantity}" readonly> </td>
-                <td> $${subtotal.toFixed(2)} </td>
+                <td> ${formatBRL(subtotal)} </td> <!-- Ok: Exibição do subtotal em BRL -->
             `;
 
             tbody.appendChild(tr);
@@ -91,18 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        const cartTotal = cartSubtotal.toFixed(2);
-        const shipping = "Free"; // Assuming shipping is free
+        const shipping = "Grátis";
 
-        document.getElementById('cart-subtotal').innerText = `$${cartSubtotal.toFixed(2)}`;
-        document.getElementById('cart-total').innerText = `$${cartTotal}`;
+        document.getElementById('cart-subtotal').innerText = formatBRL(cartSubtotal);
+        document.getElementById('cart-total').innerText = formatBRL(cartSubtotal);
 
         const cartTotalsTable = document.getElementById('subtotal').getElementsByTagName('table')[0];
         const cartTotalsRows = cartTotalsTable.getElementsByTagName('tr');
         
-        cartTotalsRows[0].getElementsByTagName('td')[1].innerText = `$${cartTotal}`;
+        cartTotalsRows[0].getElementsByTagName('td')[1].innerText = `${formatBRL(cartSubtotal)}`;
         cartTotalsRows[1].getElementsByTagName('td')[1].innerText = shipping;
-        cartTotalsRows[2].getElementsByTagName('td')[1].innerText = `$${cartTotal}`;
+        cartTotalsRows[2].getElementsByTagName('td')[1].innerText = `${formatBRL(cartSubtotal)}`;
 
         const cartEmptyMessage = document.getElementById('cart-empty-message');
         if (cartItems.length === 0) {
@@ -112,15 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function formatBRL(value) {
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+    
     function updateCartTotals(subtotal) {
-        cartSubtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-        cartTotalElement.textContent = `$${subtotal.toFixed(2)}`;
-
+        cartSubtotalElement.textContent = formatBRL(subtotal);
+        cartTotalElement.textContent = formatBRL(subtotal);
+    
         const cartTotalsTable = document.getElementById('subtotal').getElementsByTagName('table')[0];
         const cartTotalsRows = cartTotalsTable.getElementsByTagName('tr');
         
-        cartTotalsRows[0].getElementsByTagName('td')[1].innerText = `$${subtotal.toFixed(2)}`;
-        cartTotalsRows[2].getElementsByTagName('td')[1].innerText = `$${subtotal.toFixed(2)}`;
+        cartTotalsRows[0].getElementsByTagName('td')[1].innerText = formatBRL(subtotal);
+        cartTotalsRows[2].getElementsByTagName('td')[1].innerText = formatBRL(subtotal);
     }
 
     function clearCart() {

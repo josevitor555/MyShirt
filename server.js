@@ -57,7 +57,7 @@ app.post('/stripe-checkout', async (request, response) => {
 
             return {
                 price_data: {
-                    currency: 'usd',
+                    currency: 'brl',
                     product_data: {
                         name: item.title,
                         images: [item.productImg]
