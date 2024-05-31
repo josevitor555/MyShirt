@@ -111,7 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function formatBRL(value) {
-        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        return value.toLocaleString('pt-BR',
+        {
+            style: 'currency',
+            currency: 'BRL'
+        });
     }
     
     function updateCartTotals(subtotal) {

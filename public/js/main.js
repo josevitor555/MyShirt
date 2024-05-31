@@ -167,7 +167,11 @@ function loadCartItems() {
 }
 
 function formatBRL(value) {
-    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return value.toLocaleString('pt-BR',
+    {
+        style: 'currency',
+        currency: 'BRL'
+    });
 }
 
 function updateCartIcon() {
