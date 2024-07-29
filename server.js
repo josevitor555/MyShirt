@@ -29,7 +29,6 @@ app.get('/failedPage', (request, response) => {
 });
 
 const StripeGateway = stripe(process.env.STRIPE_SECRET_KEY);
-
 const DOMAIN = process.env.DOMAIN;
 
 const applyDiscount = (price, discountPercentage) => {
@@ -53,7 +52,7 @@ app.post('/stripe-checkout', async (request, response) => {
                 unitAmount = applyDiscount(unitAmount, discountPercentage);
             }
 
-            unitAmount = parseInt(unitAmount * 100); // Convert to cents for Stripe
+            unitAmount = parseInt(unitAmount * 100);
 
             return {
                 price_data: {
