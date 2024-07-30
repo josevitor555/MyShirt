@@ -22,7 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 discountCode: appliedCoupon
             }),
         })
-        .then((res) => res.json())
+        .then((res) => {
+            if (!res.ok) {
+                return res.text().then(text => { throw new Error(text) });
+            }
+            return res.json();
+        })
         .then((data) => {
             if (data.url) {
                 location.href = data.url;
@@ -31,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error('URL not found in response.');
             }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => console.error(error));        
     });
 
     applyButton.addEventListener("click", function() {
