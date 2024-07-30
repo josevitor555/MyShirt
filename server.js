@@ -35,7 +35,7 @@ const applyDiscount = (price, discountPercentage) => {
     return price - (price * discountPercentage / 100);
 };
 
-app.post('/api/stripe-checkout', async (request, response) => {
+app.post('/stripe-checkout', async (request, response) => {
     try {
         const { discountCode } = request.body;
         const validCoupons = { "DISCOUNT30": 30, "SAVE30": 30, "PROMO30": 30 };

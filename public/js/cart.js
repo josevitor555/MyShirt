@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let cartSubtotal = 0;
 
     proceedToCheckoutBtn.addEventListener('click', () => {
-        fetch('/api/stripe-checkout', {
+        fetch('/stripe-checkout', {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
