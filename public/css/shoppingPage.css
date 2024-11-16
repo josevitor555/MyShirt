@@ -38,7 +38,7 @@ section {
 }
 
 #cartPage table img {
-    width: 70px;
+    width: 100%;
 }
 
 #cartPage table td:nth-child(1) {
@@ -234,6 +234,41 @@ section {
 
 .cart-empty-message p {
     font-size: 1.6rem;
+}
+
+#cart-add #coupon {
+    width: 50%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-add #cart-add #coupon {
+    padding: 1rem 2rem;
+    background: #FAFAFA;
+    width: 40%;
+}
+
+#cart-add #coupon-message {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 1rem;
+    display: none;
+    width: 60%;
+    font-size: 1.4rem;
+}
+
+#cart-add #coupon-message.success {
+    background: #151515;
+    color: #FAFAFA;
+    display: block;
+}
+
+#cart-add #coupon-message.error {
+    background: #151515;
+    color: #FAFAFA;
+    display: block;
 }
 
 @media (max-width: 540px) {
