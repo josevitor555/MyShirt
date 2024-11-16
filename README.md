@@ -68,7 +68,6 @@
   - [x] Layout intuitivo e funcional para todas as etapas da compra (Nota: Alguns elementos podem "sumir" em telas menores - recomendo telas 1080px por 1920px)
   - [x] Gerenciamento dinâmico do carrinho utilizando localStorage.
   - [x] Mensagens claras de feedback ao usuário em cada etapa do processo.
-  - [ ] 
 
 ### Nota
 > [!NOTE]  
