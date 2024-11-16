@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./css/shoppingPage.css">
     <link rel="stylesheet" href="./css/root.css">
 
+    <link rel="stylesheet" href="../dist/output.css">
+
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title> Shopping Page </title>
 </head>
@@ -29,42 +31,75 @@
         </table>
 
         <div class="cart-empty-message" id="cart-empty-message">
-            <h2> Sacola Vazia </h2>
+            <h2 class=""> Sacola Vazia </h2>
             <p> Sua sacola de compras está vazia, retorne à pagina principal para adicionar mais itens </p>
         </div>
     </section>
 
     <section id="cart-add">
         <div id="coupon">
-            <h3> Aplicar Cupom </h3>
+            <h3>Aplicar Cupom</h3>
             <div>
                 <input type="text" placeholder="Código do Cupom">
-                <button> Aplicar </button>
+                <button class="text-2xl uppercase">Aplicar</button>
             </div>
             <div id="coupon-message" class="hidden"></div>
+
+            <div class="overflow-x-auto">
+                <div class="min-w-full border border-gray-200 rounded-lg shadow-md">
+                    <table class="min-w-full bg-white table-auto">
+                        <thead class="bg-gray-100 text-gray-700">
+                            <tr>
+                                <th class="px-4 py-2 text-left text-2xl font-semibold"> # </th>
+                                <th class="px-4 py-2 text-left text-2xl font-semibold">  Nome do Cupom </th>
+                                <th class="px-4 py-2 text-left text-2xl font-semibold"> Valor </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-4 py-2 text-2xl"> 1 </td>
+                                <td class="px-4 py-2 text-2xl"> #DISCONTO30 </td>
+                                <td class="px-4 py-2 text-2xl"> 30% OFF</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 text-2xl"> 2 </td>
+                                <td class="px-4 py-2 text-2xl"> #SAVE30 </td>
+                                <td class="px-4 py-2 text-2xl"> 30% OFF </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 text-2xl"> 3 </td>
+                                <td class="px-4 py-2 text-2xl"> #PROMO30 </td>
+                                <td class="px-4 py-2 text-2xl"> 30% OFF </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
         <div id="subtotal">
-            <h3> Total do Carrinho </h3>
+            <h3>Total do Carrinho</h3>
             <table>
                 <tr>
-                    <td> Subtotal do Carrinho </td>
-                    <td id="cart-subtotal"> R$ 0.00 </td>
+                    <td>Subtotal do Carrinho</td>
+                    <td id="cart-subtotal">R$ 0.00</td>
                 </tr>
                 <tr>
-                    <td> Frete </td>
-                    <td id="shipping"> Grátis </td>
+                    <td>Frete</td>
+                    <td id="shipping">Grátis</td>
                 </tr>
                 <tr>
-                    <td> <strong> Total </strong> </td>
-                    <td id="cart-total"> R$ 0.00 </td>
+                    <td><strong>Total</strong></td>
+                    <td id="cart-total">R$ 0.00</td>
                 </tr>
             </table>
             <div class="button-area">
-                <button id="proceedToCheckout"> Proceder ao Checkout </button>
-                <a href="http://localhost:3000"> Continue comprando </a>
+                <button id="proceedToCheckout" class="text-2xl uppercase"> Proceder ao Checkout </button>
+                <a href="http://localhost:3000" class="text-2xl uppercase"> Continue comprando </a>
             </div>
         </div>
     </section>
+
 
     <script src="./js/cart.js"></script>
 </body>

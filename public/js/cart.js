@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartSubtotalElement = document.getElementById("cart-subtotal");
     const cartTotalElement = document.getElementById("cart-total");
 
-    const validCoupons = ["DISCOUNT30", "SAVE30", "PROMO30"];
+    const validCoupons = ["DISCONTO30", "SAVE30", "PROMO30"];
     let appliedCoupon = "";
     
     let cartSubtotal = 0;

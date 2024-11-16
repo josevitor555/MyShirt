@@ -2,30 +2,36 @@ import express from 'express';
 import dotenv from 'dotenv';
 import stripe from 'stripe';
 import cors from 'cors';
+import path from 'path';
 
 dotenv.config();
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
+// Servindo o Arquivo gerado pelo Tailwind da pasta /dist
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
+
+// Servindo o arquivo index.html da pasta /public
 app.get('/', (request, response) => {
-    response.sendFile('index.html', {
-        root: 'public'
-    });
+    response.sendFile('index.html', { root: 'public' });
 });
 
 app.get('/successPage', (request, response) => {
-    response.sendFile('successPage.html', {
-        root: 'public',
-    });
+    response.sendFile('successPage.html', { root: 'public' });
 });
+
 app.get('/failedPage', (request, response) => {
-    response.sendFile('failedPage.html', {
-        root: 'public',
-    });
+    response.sendFile('failedPage.html', { root: 'public', });
 });
 
 const StripeGateway = stripe(process.env.STRIPE_SECRET_KEY);
@@ -38,7 +44,7 @@ const applyDiscount = (price, discountPercentage) => {
 app.post('/stripe-checkout', async (request, response) => {
     try {
         const { discountCode } = request.body;
-        const validCoupons = { "DISCOUNT30": 30, "SAVE30": 30, "PROMO30": 30 };
+        const validCoupons = { "DISCONTO30": 30, "SAVE30": 30, "PROMO30": 30 };
         let discountPercentage = 0;
 
         if (validCoupons[discountCode]) {
@@ -59,7 +65,7 @@ app.post('/stripe-checkout', async (request, response) => {
                     currency: 'brl',
                     product_data: {
                         name: item.title,
-                        images: [item.productImg]
+                        // images: [item.productImg]
                     },
                     unit_amount: unitAmount
                 },
