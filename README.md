@@ -68,3 +68,12 @@
   - [x] Layout intuitivo e funcional para todas as etapas da compra (Nota: Alguns elementos podem "sumir" em telas menores - recomendo telas 1080px por 1920px)
   - [x] Gerenciamento dinâmico do carrinho utilizando localStorage.
   - [x] Mensagens claras de feedback ao usuário em cada etapa do processo.
+  - [ ] 
+
+### Nota
+> [!NOTE]  
+> Você precisa abrir uma conta no Stripe, assim você pode pegar as chaves de acesso da API.
+
+### Dica
+> [!TIP]
+> Como mencionando anteriormente, você pode entrar atrvés desse link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login]
