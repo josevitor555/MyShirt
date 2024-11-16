@@ -75,7 +75,7 @@
 
 ### Dica
 > [!TIP]
-> Como mencionando anteriormente, você pode entrar atrvés desse link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login]
+> Como mencionando anteriormente, você pode entrar através deste link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login]
 
 <div align="center">
   <h1> Buy Me a Coffee! </h1>
