@@ -77,3 +77,7 @@
 ### Dica
 > [!TIP]
 > Como mencionando anteriormente, você pode entrar atrvés desse link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login]
+
+### Importante
+> [!WARNING]  
+> Se este projeto te inspirou ou ajudou, seu apoio significaria muito para mim. 💛
