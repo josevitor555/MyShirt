@@ -71,7 +71,7 @@
 
 ### Nota
 > [!NOTE]  
-> Você precisa abrir uma conta no Stripe, assim você pode pegar as chaves de acesso da API.
+> Você precisa abrir uma conta no Stripe, assim você pode pegar as chaves de acesso da API em "Modo Desenvolvedor"
 
 ### Dica
 > [!TIP]
