@@ -93,7 +93,7 @@ O sisteme possui uma tabela de descontos com 30% do valor subtraído do original
 | 2  | SAVE30  | 30% OFF |
 | 3  | PROMO30  | 30% OFF |
 
-<strong> Como funciona: </stronng> 30% do valor subtraído do original: Um desconto padrão de 30% está configurado, o que significa que o preço final de um produto ou serviço será reduzido em 30% do preço original. Por exemplo, se o preço original for R$100, o preço com desconto será R$70 (100 - 30%).
+<strong> 30% do valor subtraído do original: </stronng> Um desconto padrão de 30% está configurado, o que significa que o preço final de um produto ou serviço será reduzido em 30% do preço original. Por exemplo, se o preço original for R$100, o preço com desconto será R$70 (100 - 30%).
 
 ### Nota
 > [!NOTE]  
