@@ -85,6 +85,16 @@ npm install
 npm run watch-tailwind
 ```
 
+## 8 - Tabela de Descontos
+O sisteme possui uma tabela de descontos com 30% do valor subtraído do original. 30% é um exemplo, mas você pode alterar.
+| #  | Nome do Cupom | Valor |
+|----| ------------- | ------------- |
+| 1  | DISCONTO30  | 30% OFF |
+| 2  | SAVE30  | 30% OFF |
+| 3  | PROMO30  | 30% OFF |
+
+30% do valor subtraído do original: Um desconto padrão de 30% está configurado, o que significa que o preço final de um produto ou serviço será reduzido em 30% do preço original. Por exemplo, se o preço original for R$100, o preço com desconto será R$70 (100 - 30%).
+
 ### Nota
 > [!NOTE]  
 > Estas chaves de API funcionam em modo de teste, mas você precisará adicionar seus dados bancários para ver chaves em modo de produção e começar a aceitar pagamentos.
