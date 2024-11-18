@@ -97,19 +97,24 @@ O sisteme possui uma tabela de descontos com 30% do valor subtraído do original
 
 ### Nota
 > [!NOTE]  
-> Estas chaves de API funcionam em modo de teste, mas você precisará adicionar seus dados bancários para ver chaves em modo de produção e começar a aceitar pagamentos.
-> Navegue até "Para desenvolvedores" e depois "Chaves da API", e escolhe entre Publicável ou Secreta. </br>
-> <strong> Modo de Teste: </strong> Permite realizar transações simuladas pelo checkout do Stripe, sem movimentação de dinheiro real. </br>
-> <strong> Modo de Produção: </strong> Habilita transações reais pelo checkout do Stripe. Certifique-se de configurar corretamente antes de utilizá-lo.
+> Todas as contas têm um total de quatro chaves de API por padrão, duas para o modo de teste e duas para o modo de produção.
+> Navegue até "Para desenvolvedores" e depois "Chaves da API", e escolhe entre Publicável ou Secreta, dependentemente da escolha entre Modo Teste ou Modo Produção. </br>
+> <strong> Chave secreta do modo de teste: </strong> use essa chave para autenticar solicitações no seu servidor quando estiver no modo de teste. Por padrão, você pode usar essa chave para realizar qualquer solicitação de API sem restrição </br>
+> <strong> Chave publicável do modo de teste: </strong> use essa chave para fins de teste no código do lado do cliente do seu aplicativo móvel. </br>
+> <strong> Chave secreta do modo de produção: </strong> use essa chave para autenticar solicitações no seu servidor quando estiver no modo de produção. Por padrão, você pode usar essa chave para realizar qualquer solicitação de API sem restrição. </br>
+> <strong> Chave publicável no modo de produção: </strong> use esta chave quando estiver pronto para lançar seu aplicativo, no código do lado do cliente do seu aplicativo móvel ou web.
 
 ### Dica
 > [!TIP]
-> Como mencionando anteriormente, você pode entrar através deste link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login]
+> Como mencionando anteriormente, você pode entrar através deste link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login] </br>
+> Leia a documentação do stripe [https://docs.stripe.com/keys?locale=pt-BR]
 
+### PRE-RI-GO!
 > [!WARNING]  
 > Saiba a Diferença entre "Chave Secreta" e "Chave Publicável" </br>
 > <strong> Chave Publicável (Publishable Key): </strong> Essa chave é usada principalmente no front-end e pode ser exposta ao público. Ela permite ações que não envolvem informações sensíveis, como inicializar o Stripe no navegador ou criar elementos de checkout. No entanto, ela não permite acessar ou alterar informações confidenciais. </br>
 > <strong> Chave Secreta (Secret Key): </strong> Essa chave é destinada ao uso no back-end e deve ser mantida confidencial. Com ela, você pode executar ações mais críticas, como criar, atualizar ou deletar dados em sua conta Stripe. Por segurança, a chave secreta é exibida apenas uma vez ao ser revelada no painel do Stripe, por isso deve ser armazenada em local seguro.
+> <strong> Chave secreta do modo de produção: </strong> use essa chave para autenticar solicitações no seu servidor quando estiver no modo de produção. Por padrão, você pode usar essa chave para realizar qualquer solicitação de API sem restrição.
 
 <div align="center">
   <h1> Buy Me a Coffee! </h1>
