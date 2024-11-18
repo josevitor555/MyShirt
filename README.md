@@ -1,5 +1,5 @@
 ## 1 - Descrição Geral
-> O sistema é um e-commerce desenvolvido em um formato multi-página, com integração ao Stripe para gerenciar pagamentos. A experiência do usuário inclui uma "Sacola Online" (shoppingPage.html) para visualização e manipulação dos itens do carrinho, páginas dedicadas para feedback do pagamento (successPage.html e failedPage.html), e funcionalidades como cálculo de subtotal e total com frete grátis.
+> Este é um projeto de e-commerce desenvolvido em um formato multi-página, com integração ao Stripe para gerenciar pagamentos. O sistema inclui uma "Sacola Online" (shoppingPage.html) para visualização e manipulação dos itens do carrinho, páginas dedicadas para feedback do pagamento (successPage.html e failedPage.html), e funcionalidades como cálculo de subtotal e total com frete grátis.
 
 ## 2 - Estrutura do Projeto
 ### O site possui as seguintes páginas principais
