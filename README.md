@@ -62,10 +62,10 @@
    -  [x] Ao clicar em "Proceder ao Checkout", o Stripe gerencia a etapa de pagamento.
    -  [x] Após o pagamento, o usuário é redirecionado para successPage.html: Em caso de sucesso e failedPage.html: Em caso de falha.
 
-## 5  - Benefícios do Sistema:
+## 5  - Benefícios do Sistema
 - Fluxo
   - [x] Integração segura e confiável com Stripe.
-  - [x] Layout intuitivo e funcional para todas as etapas da compra (Nota: Alguns elementos podem "sumir" em telas menores - recomendo telas 1080px por 1920px)
+  - [x] Layout intuitivo e funcional para todas as etapas da compra (Nota: Alguns elementos podem "sumir" em telas menores - recomendo telas 1080px por 1920px), pois o site ainda não está completamente responsivo.
   - [x] Gerenciamento dinâmico do carrinho utilizando localStorage.
   - [x] Mensagens claras de feedback ao usuário em cada etapa do processo.
 
@@ -87,7 +87,8 @@ npm run watch-tailwind
 
 ### Nota
 > [!NOTE]  
-> Você precisa abrir uma conta no Stripe, assim você pode pegar as chaves de acesso da API em "Modo Desenvolvedor"
+> Estas chaves de API funcionam em modo de teste, mas você precisará adicionar seus dados bancários para ver chaves em modo de produção e começar a aceitar pagamentos.
+> Pegue as chaves em "Para desenvolvedores", Publicável ou Secreta.
 
 ### Dica
 > [!TIP]
