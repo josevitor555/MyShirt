@@ -11,6 +11,8 @@
 
   <link rel="stylesheet" href="../dist/output.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
   <title> MyShirt </title>
 </head>
 <body>
@@ -239,17 +241,19 @@
 
   <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close"> &times; </span>
+      <i class="close-modal fa-solid fa-x"></i>
       <h2 class="text-4xl font-semibold"> Bem vindo(a) ao MyShirt! </h2>
-      <p class="text-2xl mt-4"> Este é um projeto e-commercer utilizando Stripe como meio de pagamento. </p>
+      <p class="text-3xl font-light mt-4"> Este é um projeto e-commercer utilizando Stripe como meio de pagamento. </p>
 
-      <div class="center">
-        <h1 class="text-3xl mt-4"> Buy Me a Coffee! </h1>
-        <img src="./images/bmc_qr.png" alt="Me Compre um Café!">
-        <p class="text-4xl"> Apoia-me comprando um café! 💛</p>
+      <div class="flex item-center flex-col">
+        <img src="./images/bmc_qr.png" alt="Quero cafeeeeeeeeeee!">
+        <p class="text-3xl"> Apoia-me comprando um café! 💛</p>
       </div>
 
-      <button type="button" class="btn-modal text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-2xl mt-4 px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"> Fechar </button>
+      <!-- <button type="button" class="btn-modal text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-2xl mt-4 px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"> Fechar </button> -->
+       <div class="copy-link-fromQRCode">
+        <a href="https://buymeacoffee.com/josevitor555" target="_blank"> <span class="text-2xl font-semibold hover:underline"> https://buymeacoffee.com/josevitor555 </span> </a>
+       </div>
     </div>
   </div>
   
@@ -257,5 +261,6 @@
   <script type="module" src="./js/accordion.js"></script>
   <script type="module" src="./js/cart.js"></script>
   <script type="module" src="./js/openmodal.js"></script>
+  <script type="module" src="./js/hideModal.js"></script>
 </body>
 </html>
