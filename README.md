@@ -69,6 +69,22 @@
   - [x] Gerenciamento dinâmico do carrinho utilizando localStorage.
   - [x] Mensagens claras de feedback ao usuário em cada etapa do processo.
 
+## 6 - Instalando as Dependências do projeto
+```
+# Entra na pasta do projeto com cd
+cd .\myshirts\
+```
+```
+# Instale as depências do projeto
+npm install
+```
+
+## 7 - Inicializando o TailWind
+```
+# Abra outra terminal e entra no projeto raiz, rodando o comando para inicializar o tailwind
+npm run watch-tailwind
+```
+
 ### Nota
 > [!NOTE]  
 > Você precisa abrir uma conta no Stripe, assim você pode pegar as chaves de acesso da API em "Modo Desenvolvedor"
