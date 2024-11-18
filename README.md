@@ -93,14 +93,14 @@ O sisteme possui uma tabela de descontos com 30% do valor subtraído do original
 | 2  | SAVE30  | 30% OFF |
 | 3  | PROMO30  | 30% OFF |
 
-30% do valor subtraído do original: Um desconto padrão de 30% está configurado, o que significa que o preço final de um produto ou serviço será reduzido em 30% do preço original. Por exemplo, se o preço original for R$100, o preço com desconto será R$70 (100 - 30%).
+<strong> Como funciona; </stronng> 30% do valor subtraído do original: Um desconto padrão de 30% está configurado, o que significa que o preço final de um produto ou serviço será reduzido em 30% do preço original. Por exemplo, se o preço original for R$100, o preço com desconto será R$70 (100 - 30%).
 
 ### Nota
 > [!NOTE]  
 > Estas chaves de API funcionam em modo de teste, mas você precisará adicionar seus dados bancários para ver chaves em modo de produção e começar a aceitar pagamentos.
-> Navegue até "Para desenvolvedores" e depois "Chaves da API", Publicável ou Secreta. </br>
-> Modo de Teste: Permite realizar transações simuladas, sem movimentação de dinheiro real. </br>
-> Modo de Produção: Habilita transações reais pelo checkout do Stripe. Certifique-se de configurar corretamente antes de utilizá-lo.
+> Navegue até "Para desenvolvedores" e depois "Chaves da API", e escolhe entre Publicável ou Secreta. </br>
+> <strong> Modo de Teste: </strong> Permite realizar transações simuladas pelo checkout do Stripe, sem movimentação de dinheiro real. </br>
+> <strong> Modo de Produção: </strong> Habilita transações reais pelo checkout do Stripe. Certifique-se de configurar corretamente antes de utilizá-lo.
 
 ### Dica
 > [!TIP]
