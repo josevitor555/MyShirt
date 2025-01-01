@@ -1,5 +1,5 @@
 ## 1 - Descrição Geral
-> O sistema é um e-commerce desenvolvido em um formato multi-página, com integração ao Stripe para gerenciar pagamentos. A experiência do usuário inclui uma "Sacola Online" (shoppingPage.html) para visualização e manipulação dos itens do carrinho, páginas dedicadas para feedback do pagamento (successPage.html e failedPage.html), e funcionalidades como cálculo de subtotal e total com frete grátis.
+> Este é um projeto de e-commerce desenvolvido em um formato multi-página, com integração ao Stripe para gerenciar pagamentos. O sistema inclui uma "Sacola Online" (shoppingPage.html) para visualização e manipulação dos itens do carrinho, páginas dedicadas para feedback do pagamento (successPage.html e failedPage.html), e funcionalidades como cálculo de subtotal e total com frete grátis.
 
 ## 2 - Estrutura do Projeto
 ### O site possui as seguintes páginas principais
@@ -62,20 +62,59 @@
    -  [x] Ao clicar em "Proceder ao Checkout", o Stripe gerencia a etapa de pagamento.
    -  [x] Após o pagamento, o usuário é redirecionado para successPage.html: Em caso de sucesso e failedPage.html: Em caso de falha.
 
-## 5  - Benefícios do Sistema:
+## 5  - Benefícios do Sistema
 - Fluxo
   - [x] Integração segura e confiável com Stripe.
-  - [x] Layout intuitivo e funcional para todas as etapas da compra (Nota: Alguns elementos podem "sumir" em telas menores - recomendo telas 1080px por 1920px)
+  - [x] Layout intuitivo e funcional para todas as etapas da compra (Nota: Alguns elementos podem "sumir" em telas menores - recomendo telas 1080px por 1920px), pois o site ainda não está completamente responsivo.
   - [x] Gerenciamento dinâmico do carrinho utilizando localStorage.
   - [x] Mensagens claras de feedback ao usuário em cada etapa do processo.
 
+## 6 - Instalando as Dependências do projeto
+```
+# Entra na pasta do projeto com cd
+cd .\myshirts\
+```
+```
+# Instale as depências do projeto
+npm install
+```
+
+## 7 - Inicializando o TailWind
+```
+# Abra outra terminal e entra no projeto raiz, rodando o comando para inicializar o tailwind
+npm run watch-tailwind
+```
+
+## 8 - Tabela de Descontos
+O sisteme possui uma tabela de descontos com 30% do valor subtraído do original. 30% é um exemplo, mas você pode alterar.
+| #  | Nome do Cupom | Valor |
+|----| ------------- | ------------- |
+| 1  | DISCONTO30  | 30% OFF |
+| 2  | SAVE30  | 30% OFF |
+| 3  | PROMO30  | 30% OFF |
+
+<strong> 30% do valor subtraído do original: </stronng> Um desconto padrão de 30% está configurado, o que significa que o preço final de um produto ou serviço será reduzido em 30% do preço original. Por exemplo, se o preço original for R$100, o preço com desconto será R$70 (100 - 30%).
+
 ### Nota
 > [!NOTE]  
-> Você precisa abrir uma conta no Stripe, assim você pode pegar as chaves de acesso da API em "Modo Desenvolvedor"
+> Todas as contas têm um total de quatro chaves de API por padrão, duas para o modo de teste e duas para o modo de produção.
+> Navegue até "Para desenvolvedores" e depois "Chaves da API", e escolhe entre Publicável ou Secreta, dependentemente da escolha entre Modo Teste ou Modo Produção. </br>
+> <strong> Chave secreta do modo de teste: </strong> use essa chave para autenticar solicitações no seu servidor quando estiver no modo de teste. Por padrão, você pode usar essa chave para realizar qualquer solicitação de API sem restrição </br>
+> <strong> Chave publicável do modo de teste: </strong> use essa chave para fins de teste no código do lado do cliente do seu aplicativo móvel. </br>
+> <strong> Chave secreta do modo de produção: </strong> use essa chave para autenticar solicitações no seu servidor quando estiver no modo de produção. Por padrão, você pode usar essa chave para realizar qualquer solicitação de API sem restrição. </br>
+> <strong> Chave publicável no modo de produção: </strong> use esta chave quando estiver pronto para lançar seu aplicativo, no código do lado do cliente do seu aplicativo móvel ou web.
 
 ### Dica
 > [!TIP]
-> Como mencionando anteriormente, você pode entrar através deste link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login]
+> Como mencionando anteriormente, você pode entrar através deste link oficial do Stripe e criar sua conta [https://dashboard.stripe.com/login] </br>
+> Leia a documentação do stripe [https://docs.stripe.com/keys?locale=pt-BR]
+
+### PRE-RI-GO!
+> [!WARNING]  
+> Saiba a Diferença entre "Chave Secreta" e "Chave Publicável" </br>
+> <strong> Chave Publicável (Publishable Key): </strong> Essa chave é usada principalmente no front-end e pode ser exposta ao público. Ela permite ações que não envolvem informações sensíveis, como inicializar o Stripe no navegador ou criar elementos de checkout. No entanto, ela não permite acessar ou alterar informações confidenciais. </br>
+> <strong> Chave Secreta (Secret Key): </strong> Essa chave é destinada ao uso no back-end e deve ser mantida confidencial. Com ela, você pode executar ações mais críticas, como criar, atualizar ou deletar dados em sua conta Stripe. Por segurança, a chave secreta é exibida apenas uma vez ao ser revelada no painel do Stripe, por isso deve ser armazenada em local seguro.
+> <strong> Chave secreta do modo de produção: </strong> use essa chave para autenticar solicitações no seu servidor quando estiver no modo de produção. Por padrão, você pode usar essa chave para realizar qualquer solicitação de API sem restrição.
 
 <div align="center">
   <h1> Buy Me a Coffee! </h1>
