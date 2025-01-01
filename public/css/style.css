@@ -364,12 +364,13 @@ section .shop-content .product-box .product-description {
   margin: 10px auto;
 }
 
-
-
-
 @media (max-width: 1080px) {
-  .nav {
+  /* .nav {
     padding: 1.4rem 0;
+  } */
+
+  header {
+    padding: 0px 30px;
   }
 
   section {
@@ -398,7 +399,6 @@ section .shop-content .product-box .product-description {
     align-items: center;
     padding: 20px;
   }
-
 
 }
 
