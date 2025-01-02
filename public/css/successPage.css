@@ -114,3 +114,15 @@
 .sc-container .content-box .accordion .accordion-content a:hover {
   opacity: 1;
 }
+
+@media (max-width: 1080px) {
+  .sc-container .content-box {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+body {
+  height: 100vh;
+  overflow-y: auto;
+}

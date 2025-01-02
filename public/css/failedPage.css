@@ -104,14 +104,10 @@
 }
 
 @media (max-width: 1080px) {
+
   .cancel-container .content-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: #fafafa;
-    border-radius: 1.4rem;
+    width: 90%;
+    text-align: center;
   }
 
   .cancel-container .content-box h1 {
@@ -127,11 +123,12 @@
   }
 
   .cancel-container .content-box p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: center;
     margin: 0.5rem 0;
     color: #DF2E38;
     font-weight: 500;
+    opacity: .8;
   }
 
   .btn {
