@@ -80,7 +80,7 @@ app.post('/stripe-checkout', async (request, response) => {
             success_url: `${DOMAIN}/successPage.html`,
             cancel_url: `${DOMAIN}/failedPage.html`,
             line_items: lineItems,
-            // billing_address_collection: 'required'
+            billing_address_collection: 'required'
         });
         response.json({ url: session.url });
 
